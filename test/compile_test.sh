@@ -15,7 +15,7 @@ EOF
   compile
   
   assertCapturedSuccess
-  assertCaptured "Installing OpenJDK 1.6" 
+  assertCaptured "Installing OpenJDK 1.7"
   assertCaptured "Installing gradle-1.11"
   assertCaptured "${expected_stage_output}" 
   assertCaptured "BUILD SUCCESSFUL"
