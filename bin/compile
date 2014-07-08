@@ -20,15 +20,13 @@ curl --silent --location "${JVM_BUILDPACK_COMMON_URL}" | tar xz
 
 # create default system.properties
 if [ ! -f ${BUILD_DIR}/system.properties ]; then
-  echo "java.runtime.version=1.6" > ${BUILD_DIR}/system.properties
+  echo "java.runtime.version=1.7" > ${BUILD_DIR}/system.properties
 fi
 
 # install JDK
 javaVersion=$(detect_java_version ${BUILD_DIR})
-echo -n "-----> Installing OpenJDK ${javaVersion}... "
 install_java ${BUILD_DIR} ${javaVersion}
 jdk_overlay ${BUILD_DIR}
-echo "done"
 
 if [ ! -d $CACHE_DIR ] ; then
   mkdir $CACHE_DIR
